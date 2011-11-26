@@ -1,0 +1,78 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="UTF-8">
+	<title>MindMap test</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="explorer.js"></script>
+	<script type="text/javascript">
+	
+$(document).ready(function() {
+	
+	nA = new CanvasNode();
+	nB = new CanvasNode();
+	nC = new CanvasNode();
+	nD = new CanvasNode();
+	
+	nA.Bond(nB, true);
+	nA.Bond(nC, true);
+	nA.Bond(nD, true);
+	
+	
+	nE = new CanvasNode();
+	nF = new CanvasNode();
+	nG = new CanvasNode();
+	nH = new CanvasNode();
+	
+	nD.Bond(nE, true);
+	nD.Bond(nF, true);
+	nD.Bond(nG, true);
+	nD.Bond(nH, true);
+	
+	nI = new CanvasNode();
+	nJ = new CanvasNode();
+	nK = new CanvasNode();
+	nL = new CanvasNode();
+	nM = new CanvasNode();
+	
+	nH.Bond(nI, true);
+	nH.Bond(nJ, true);
+	nH.Bond(nK, true);
+	nH.Bond(nL, true);
+	nH.Bond(nM, true);
+	c = new CanvasView(document.getElementById('main_canvas'));
+	c.setRootNode(nA);
+	
+	
+	nA.addEventListener("click", clickIt);
+	nB.addEventListener("click", clickIt);
+	nC.addEventListener("click", clickIt);
+	nD.addEventListener("click", clickIt);
+	nE.addEventListener("click", clickIt);
+	nF.addEventListener("click", clickIt);
+	nG.addEventListener("click", clickIt);
+	nH.addEventListener("click", clickIt);
+	nI.addEventListener("click", clickIt);
+	nJ.addEventListener("click", clickIt);
+	nK.addEventListener("click", clickIt);
+	nL.addEventListener("click", clickIt);
+	nM.addEventListener("click", clickIt);
+
+	nA.addEventListener("click", clickIt);
+	
+	intervalFunc.push(function() {
+		c.Render();
+	});
+	
+});
+
+function clickIt(event, view, node) {
+	view.setRootNode(node);
+}
+	</script>
+</head>
+<body>
+	<canvas id='main_canvas' width='1000' height='600'></canvas>
+</body>
+</html>
